@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "995781728845",
+    "project_id": "practice-db554",
+    "storage_bucket": "practice-db554.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995781728845:android:c590a418efd028f40e1a04",
+        "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995781728845-f05tptt3dohmkocp86fdbmlhafj58moj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNKq2GosuqB1bJDwCE0XIdkU_a-hWlPtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995781728845-f05tptt3dohmkocp86fdbmlhafj58moj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
