@@ -1,3 +1,5 @@
+// ignore_for_file: await_only_futures
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -27,12 +29,22 @@ class Login extends StatelessWidget {
         await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-                  title: Text('Login Successfully'),
-                  content: Text(
-                    '$email ',
+                  title: const Text('Login Successfully'),
+                  content: SingleChildScrollView(
+                      child: Text(
+                    email,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                  ),
+                  )),
+                  actions: <Widget>[
+                    TextButton(
+                      child: const Text('Ok'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
                 ));
+
         await Navigator.push(
             context, MaterialPageRoute(builder: (context) => ProfileScreen()));
       } catch (e) {
@@ -79,29 +91,37 @@ class Login extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton.icon(
+            OutlinedButton.icon(
               icon: Icon(Icons.login),
               onPressed: loginUser,
               label: Text("Login"),
               style: ButtonStyle(
                 foregroundColor:
-                    MaterialStateProperty.all<Color>(Colors.black87),
+                    MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.blueAccent),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
-            ElevatedButton.icon(
+            OutlinedButton.icon(
               icon: Icon(Icons.app_registration),
-              onPressed: loginUser,
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Register()));
+              },
               label: Text("Register Here"),
               style: ButtonStyle(
                 foregroundColor:
-                    MaterialStateProperty.all<Color>(Colors.black87),
+                    MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.blueAccent),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0)),

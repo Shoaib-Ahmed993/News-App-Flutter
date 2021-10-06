@@ -29,14 +29,21 @@ class Register extends StatelessWidget {
         await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-                  title: Text('Register Successfully'),
-                  content: Text(
-                    ' $username \n $email',
+                  title: const Text('Registered Successfully'),
+                  content: SingleChildScrollView(
+                      child: Text(
+                    '$username \n $email',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                  ),
+                  )),
+                  actions: <Widget>[
+                    TextButton(
+                      child: const Text('Ok'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
                 ));
-        await Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
 
         // print("User is registered successfully");
         // print("username: $username");
@@ -102,12 +109,14 @@ class Register extends StatelessWidget {
             Column(
               children: [
                 ElevatedButton.icon(
-                  icon: Icon(Icons.home),
-                  onPressed: backToHome,
-                  label: Text("Back to Home"),
+                  icon: Icon(Icons.app_registration),
+                  onPressed: registerUser,
+                  label: Text("Register Account"),
                   style: ButtonStyle(
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black87),
+                        MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blueAccent),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)),
@@ -118,12 +127,14 @@ class Register extends StatelessWidget {
                   height: 15,
                 ),
                 ElevatedButton.icon(
-                  icon: Icon(Icons.app_registration),
-                  onPressed: registerUser,
-                  label: Text("Register Account"),
+                  icon: Icon(Icons.home),
+                  onPressed: backToHome,
+                  label: Text("Back to Home"),
                   style: ButtonStyle(
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.black87),
+                        MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.blueAccent),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)),

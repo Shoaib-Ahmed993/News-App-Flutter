@@ -1,4 +1,4 @@
-// import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:news_app/models/categoryModel.dart';
 
 List<CategoryModel> getCategories() {

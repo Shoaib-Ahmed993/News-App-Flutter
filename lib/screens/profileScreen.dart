@@ -15,7 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       home: Scaffold(
         //    App Bar
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.blue),
+          iconTheme: IconThemeData(color: Colors.black),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -192,11 +192,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 20,
                   )
                 ],
               ),
-              ElevatedButton.icon(
+              TextButton.icon(
                 icon: Icon(Icons.home_filled),
                 onPressed: () {
                   Navigator.push(context,
@@ -205,26 +205,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 label: Text('Back to Home'),
                 style: ButtonStyle(
                   foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black87),
+                      MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blueAccent),
                 ),
               ),
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.arrow_left),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                label: Text('Back'),
-                style: ButtonStyle(
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black87),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              )
+              
             ],
           ),
         ),
