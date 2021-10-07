@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:news_app/screens/homeScreen.dart';
 import 'package:news_app/screens/profileScreen.dart';
+import 'package:news_app/views/home.dart';
 
 class Register extends StatelessWidget {
   @override
@@ -56,7 +56,7 @@ class Register extends StatelessWidget {
 
     void backToHome() {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+          .push(MaterialPageRoute(builder: (context) => Home()));
     }
 
     return Scaffold(

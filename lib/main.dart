@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:news_app/views/home.dart';
 import 'loginRegister/login.dart';
 import 'loginRegister/register.dart';
-import 'screens/homeScreen.dart';
 import 'screens/searchScreen.dart';
 import 'screens/favouriteScreen.dart';
 import 'screens/profileScreen.dart';
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(primaryColor: Colors.white),
             home: Home(),
             routes: {
-              '/home': (context) => HomeScreen(),
               '/favourite': (context) => FavouriteScreen(),
               '/search': (context) => SearchScreen(),
               '/profile': (context) => ProfileScreen(),

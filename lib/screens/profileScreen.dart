@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/homeScreen.dart';
 import 'package:news_app/screens/searchScreen.dart';
+import 'package:news_app/views/home.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -42,12 +42,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: 150,
                   height: MediaQuery.of(context).size.height,
                   child: Image(
-                    image: AssetImage('assets/profile.png'),
+                    image: AssetImage('assets/shoaib.jpg'),
                     fit: BoxFit.fitHeight,
                   ),
                 ),
                 title: Text(
-                  'User',
+                  'Shoaib Ahmed',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 subtitle: RichText(
                     text: TextSpan(children: <TextSpan>[
                   TextSpan(
-                      text: 'abc@gmail.com\n\n',
+                      text: 'shoaib@gmail.com\n\n',
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -94,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                            text: 'user\n',
+                            text: 'Shoaib Ahmed\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300)),
@@ -112,7 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'user@gmail.com\n',
+                            text: 'shoaib@gmail.com\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -130,7 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: '+0900-786 01\n',
+                            text: '+92-1234567\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -148,7 +148,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'New York,Random Street House No. 72\n',
+                            text: 'Karachi. Pakistan\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -184,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'October 13, 1999\n',
+                            text: 'June, 14\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -200,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 icon: Icon(Icons.home_filled),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => Home()));
                 },
                 label: Text('Back to Home'),
                 style: ButtonStyle(
