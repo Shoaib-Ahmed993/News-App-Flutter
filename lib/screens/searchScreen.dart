@@ -17,6 +17,11 @@ class SearchScreen extends StatelessWidget {
     NEWS("Hypocrites at Fox News Undermine COVID Vaccine & Zuckerberg Fires Back at Facebook Whistleblower - Jimmy Kimmel Live", 'Edwards', "2021-10-07T02:11:38Z"),
     NEWS("Price spike: Are whales front-running the approval of a Bitcoin futures ETF? - Cointelegraph", 'Johnson',  "2021-10-07T02:11:00Z"),
     NEWS("Bitcoin Dominates Ethereum, Dogecoin Gains And Shiba Inu Extends Eye-Popping Rally - Benzinga - Benzinga", 'Brooks', "2021-10-07T01:47:00Z"),
+    NEWS("Kelley Blue Book: How to custom-order a car from the factory", 'Barron', "2021-10-07T09:05:00Z"),
+    NEWS("Tesla investors will vote on whether to oust James Murdoch and Kimbal Musk from the board", 'Black', "2021-10-07T09:00:51Z"),
+    NEWS("Why ‘Dogecoin Killers’ Are Making Huge Price Gains, Leaving Bitcoin, Ethereum, BNB, XRP And Cardano In The Dust", 'Edwards', "2021-10-07T09:00:44Z"),
+    NEWS("ERTH: Environmental Sustainability Investing Remains High Risk", 'Johnson',  "2021-10-07T07:45:18Z"),
+    NEWS("Dawn of the 900-kW EV ultra-charger, and a battery that can handle it", 'Brooks', "2021-10-07T07:19:13Z"),
   ];
 
   @override
@@ -69,7 +74,7 @@ class SearchScreen extends StatelessWidget {
               child: Text('Filter news by date, day or time'),
             ),
             failure: Center(
-              child: Text('No person found :('),
+              child: Text('No news found :('),
             ),
             filter: (person) => [
               person.top,
@@ -79,7 +84,7 @@ class SearchScreen extends StatelessWidget {
             builder: (person) => ListTile(
               title: Text(person.top),
               subtitle: Text(person.surname),
-              trailing: Text('${person.news} yo'),
+              trailing: Text('${person.news}'),
             ),
           ),
         ),
