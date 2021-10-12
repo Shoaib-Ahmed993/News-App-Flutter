@@ -33,29 +33,26 @@ class Register extends StatelessWidget {
           'phone': phone,
           'address': address
         });
+
         await showDialog(
             context: context,
             builder: (_) => AlertDialog(
                   title: const Text('Registered Successfully'),
                   content: SingleChildScrollView(
                       child: Text(
-                    '$username \n $email',
+                    'name: $username \nemail: $email',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   )),
                   actions: <Widget>[
                     TextButton(
                       child: const Text('Ok'),
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ProfileScreen()));
                       },
                     ),
                   ],
                 ));
-
-        // print("User is registered successfully");
-        // print("username: $username");
-        // print("email: $email");
-        // print("password: $password");
       } catch (e) {
         print('error: $e');
       }

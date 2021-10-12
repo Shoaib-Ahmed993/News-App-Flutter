@@ -32,7 +32,7 @@ class Login extends StatelessWidget {
                   title: const Text('Login Successfully'),
                   content: SingleChildScrollView(
                       child: Text(
-                    email,
+                    'email: $email',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   )),
                   actions: <Widget>[

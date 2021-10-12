@@ -72,7 +72,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCzxivJXCZk0Kk8HsHujTO3Olx0ngytPrWw&usqp=CAU"),
+                      image: NetworkImage(
+                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCzxivJXCZk0Kk8HsHujTO3Olx0ngytPrWw&usqp=CAU"),
                     ),
                   ),
                 ),
@@ -101,126 +102,100 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Column(
                 children: [
                   Container(
-                    child: Text(
-                      'Account Information'.toUpperCase(),
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.verified_user_outlined),
+                        Text(
+                          ' Account Information'.toUpperCase(),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
                     child: ListTile(
                       leading: RichText(
                           text: TextSpan(children: <TextSpan>[
                         TextSpan(
-                          text: 'Full Name \n',
+                          text: ('Full Name \n'),
                           style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                              color: Colors.grey.shade700,
+                              fontWeight: FontWeight.w500),
                         ),
                         TextSpan(
                             text: '$name\n',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300)),
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500)),
                       ])),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
                     child: ListTile(
                       leading: RichText(
                           text: TextSpan(children: <TextSpan>[
                         TextSpan(
                             text: 'Email \n',
                             style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.w500)),
                         TextSpan(
                             text: '$email\n',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300))
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500))
                       ])),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
                     child: ListTile(
                       leading: RichText(
                           text: TextSpan(children: <TextSpan>[
                         TextSpan(
                             text: 'Phone \n',
                             style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.w500)),
                         TextSpan(
                             text: '$phone\n',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300))
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500))
                       ])),
                     ),
                   ),
                   Container(
+                    margin: EdgeInsets.only(left: 15, right: 15),
                     child: ListTile(
                       leading: RichText(
                           text: TextSpan(children: <TextSpan>[
                         TextSpan(
                             text: 'Address \n',
                             style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
+                                color: Colors.grey.shade700,
+                                fontWeight: FontWeight.w500)),
                         TextSpan(
                             text: '$address\n',
                             style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300))
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500))
                       ])),
                     ),
                   ),
-                  // // Container(
-                  // //   child: ListTile(
-                  // //     leading: RichText(
-                  // //         text: TextSpan(children: <TextSpan>[
-                  // //       TextSpan(
-                  // //           text: 'Gender \n',
-                  // //           style: TextStyle(
-                  // //               fontSize: 16,
-                  // //               color: Colors.black,
-                  // //               fontWeight: FontWeight.bold)),
-                  // //       TextSpan(
-                  // //           text: 'Male\n',
-                  // //           style: TextStyle(
-                  // //               color: Colors.grey,
-                  // //               fontWeight: FontWeight.w300))
-                  // //     ])),
-                  // //   ),
-                  // // ),
-                  // Container(
-                  //   child: ListTile(
-                  //     leading: RichText(
-                  //         text: TextSpan(children: <TextSpan>[
-                  //       TextSpan(
-                  //           text: 'Date of Birth \n',
-                  //           style: TextStyle(
-                  //               fontSize: 16,
-                  //               color: Colors.black,
-                  //               fontWeight: FontWeight.bold)),
-                  //       TextSpan(
-                  //           text: 'June, 14\n',
-                  //           style: TextStyle(
-                  //               color: Colors.grey,
-                  //               fontWeight: FontWeight.w300))
-                  //     ])),
-                  //   ),
-                  // ),
                   SizedBox(
                     height: 20,
                   )
