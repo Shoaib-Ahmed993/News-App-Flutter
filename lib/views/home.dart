@@ -144,6 +144,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
+        
       ),
       //      Appbar
 
@@ -179,6 +180,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
+                    
                     //  categories
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 16),
@@ -210,6 +212,7 @@ class _HomeState extends State<Home> {
                                 url: articles[index].url);
                           }),
                     ),
+                    
                   ],
                 ),
               ),
@@ -242,11 +245,10 @@ class CategoryTile extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
               child: CachedNetworkImage(
-                imageUrl: imageUrl,
-                width: 120,
-                height: 60,
-                fit: BoxFit.cover
-              ),
+                  imageUrl: imageUrl,
+                  width: 120,
+                  height: 60,
+                  fit: BoxFit.cover),
             ),
             Container(
               alignment: Alignment.center,
@@ -316,7 +318,8 @@ class BlogTile extends StatelessWidget {
             Text(
               desc,
               style: TextStyle(color: Colors.black54),
-            )
+            ),
+            
           ],
         ),
       ),

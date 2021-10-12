@@ -85,86 +85,88 @@ class Register extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
-        child: SafeArea(
-            child: Column(
-          children: [
-            TextFormField(
-              controller: usernameController,
-              maxLength: 20,
-              decoration: const InputDecoration(
-                  labelText: 'Enter username',
-                  icon: Icon(Icons.person_add_alt)),
-            ),
-            TextFormField(
-              controller: phoneController,
-              maxLength: 20,
-              decoration: const InputDecoration(
-                  labelText: 'Enter phone', icon: Icon(Icons.phone_android)),
-            ),
-            TextFormField(
-              controller: addressController,
-              maxLength: 50,
-              decoration: const InputDecoration(
-                  labelText: 'Enter address', icon: Icon(Icons.place)),
-            ),
-            TextFormField(
-              controller: emailController,
-              maxLength: 20,
-              decoration: const InputDecoration(
-                  labelText: 'Enter email', icon: Icon(Icons.email)),
-            ),
-            TextFormField(
-              obscureText: true,
-              maxLength: 15,
-              controller: passwordController,
-              validator: (val) => val.length < 6 ? 'Password too short.' : null,
-              decoration: const InputDecoration(
-                  labelText: 'Enter passowrd', icon: Icon(Icons.password)),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Column(
-              children: [
-                ElevatedButton.icon(
-                  icon: Icon(Icons.app_registration),
-                  onPressed: registerUser,
-                  label: Text("Register Account"),
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.grey.shade50),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blueAccent),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: SafeArea(
+              child: Column(
+            children: [
+              TextFormField(
+                controller: usernameController,
+                maxLength: 20,
+                decoration: const InputDecoration(
+                    labelText: 'Enter username',
+                    icon: Icon(Icons.person_add_alt)),
+              ),
+              TextFormField(
+                controller: phoneController,
+                maxLength: 20,
+                decoration: const InputDecoration(
+                    labelText: 'Enter phone', icon: Icon(Icons.phone_android)),
+              ),
+              TextFormField(
+                controller: addressController,
+                maxLength: 50,
+                decoration: const InputDecoration(
+                    labelText: 'Enter address', icon: Icon(Icons.place)),
+              ),
+              TextFormField(
+                controller: emailController,
+                maxLength: 20,
+                decoration: const InputDecoration(
+                    labelText: 'Enter email', icon: Icon(Icons.email)),
+              ),
+              TextFormField(
+                obscureText: true,
+                maxLength: 15,
+                controller: passwordController,
+                validator: (val) => val.length < 6 ? 'Password too short.' : null,
+                decoration: const InputDecoration(
+                    labelText: 'Enter passowrd', icon: Icon(Icons.password)),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                children: [
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.app_registration),
+                    onPressed: registerUser,
+                    label: Text("Register Account"),
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.blueAccent),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                ElevatedButton.icon(
-                  icon: Icon(Icons.home),
-                  onPressed: backToHome,
-                  label: Text("Back to Home"),
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.grey.shade50),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blueAccent),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton.icon(
+                    icon: Icon(Icons.home),
+                    onPressed: backToHome,
+                    label: Text("Back to Home"),
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.grey.shade50),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.blueAccent),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
-        )),
+                ],
+              ),
+            ],
+          )),
+        ),
       ),
     );
   }
