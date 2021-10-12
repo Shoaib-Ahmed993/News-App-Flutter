@@ -79,11 +79,13 @@ class Login extends StatelessWidget {
           children: [
             TextFormField(
               controller: emailController,
+              maxLength: 20,
               decoration: const InputDecoration(
                   labelText: 'Enter email', icon: Icon(Icons.email)),
             ),
             TextFormField(
               obscureText: true,
+              maxLength: 15,
               controller: passwordController,
               decoration: const InputDecoration(
                   labelText: 'Enter passowrd', icon: Icon(Icons.password)),

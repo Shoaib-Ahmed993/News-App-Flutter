@@ -88,17 +88,20 @@ class Register extends StatelessWidget {
           children: [
             TextFormField(
               controller: usernameController,
+              maxLength: 20,
               decoration: const InputDecoration(
                   labelText: 'Enter username',
                   icon: Icon(Icons.perm_contact_cal)),
             ),
             TextFormField(
               controller: emailController,
+              maxLength: 20,
               decoration: const InputDecoration(
                   labelText: 'Enter email', icon: Icon(Icons.email)),
             ),
             TextFormField(
               obscureText: true,
+              maxLength: 15,
               controller: passwordController,
               decoration: const InputDecoration(
                   labelText: 'Enter passowrd', icon: Icon(Icons.password)),

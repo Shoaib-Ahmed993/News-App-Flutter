@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/searchScreen.dart';
 import 'package:news_app/views/home.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -199,8 +198,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               TextButton.icon(
                 icon: Icon(Icons.home_filled),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Home()));
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
                 },
                 label: Text('Back to Home'),
                 style: ButtonStyle(
@@ -213,7 +212,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 20,
               ),
-              
             ],
           ),
         ),
