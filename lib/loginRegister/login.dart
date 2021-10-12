@@ -87,6 +87,7 @@ class Login extends StatelessWidget {
               obscureText: true,
               maxLength: 15,
               controller: passwordController,
+              validator: (val) => val.length < 6 ? 'Password too short.' : null,
               decoration: const InputDecoration(
                   labelText: 'Enter passowrd', icon: Icon(Icons.password)),
             ),

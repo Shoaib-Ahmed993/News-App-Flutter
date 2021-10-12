@@ -1,5 +1,9 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:news_app/views/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -7,6 +11,31 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  String name;
+  String email;
+  String phone;
+  String address;
+  void getData() async {
+    User user = await FirebaseAuth.instance.currentUser;
+    var userData = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(user.uid)
+        .get();
+    setState(() {
+      name = userData.data()['username'];
+      email = userData.data()['email'];
+      phone = userData.data()['phone'];
+      address = userData.data()['address'];
+    });
+  }
+
+  @override
+  void initState() {
+    getData();
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,15 +67,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
             children: [
               ListTile(
                 leading: Container(
-                  width: 150,
+                  width: 120,
                   height: MediaQuery.of(context).size.height,
-                  child: Image(
-                    image: AssetImage('assets/shoaib.jpg'),
-                    fit: BoxFit.fitHeight,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCzxivJXCZk0Kk8HsHujTO3Olx0ngytPrWw&usqp=CAU"),
+                    ),
                   ),
                 ),
                 title: Text(
-                  'Shoaib Ahmed',
+                  name,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -55,7 +86,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 subtitle: RichText(
                     text: TextSpan(children: <TextSpan>[
                   TextSpan(
-                      text: 'shoaib@gmail.com\n\n',
+                      text: '$email\n\n',
                       style: TextStyle(
                           fontSize: 14,
                           color: Colors.black,
@@ -93,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               fontWeight: FontWeight.bold),
                         ),
                         TextSpan(
-                            text: 'Shoaib Ahmed\n',
+                            text: '$name\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300)),
@@ -111,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'shoaib@gmail.com\n',
+                            text: '$email\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -129,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: '+92-1234567\n',
+                            text: '$phone\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
@@ -147,49 +178,49 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'Karachi. Pakistan\n',
+                            text: '$address\n',
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.w300))
                       ])),
                     ),
                   ),
-                  Container(
-                    child: ListTile(
-                      leading: RichText(
-                          text: TextSpan(children: <TextSpan>[
-                        TextSpan(
-                            text: 'Gender \n',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                        TextSpan(
-                            text: 'Male\n',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300))
-                      ])),
-                    ),
-                  ),
-                  Container(
-                    child: ListTile(
-                      leading: RichText(
-                          text: TextSpan(children: <TextSpan>[
-                        TextSpan(
-                            text: 'Date of Birth \n',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold)),
-                        TextSpan(
-                            text: 'June, 14\n',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w300))
-                      ])),
-                    ),
-                  ),
+                  // // Container(
+                  // //   child: ListTile(
+                  // //     leading: RichText(
+                  // //         text: TextSpan(children: <TextSpan>[
+                  // //       TextSpan(
+                  // //           text: 'Gender \n',
+                  // //           style: TextStyle(
+                  // //               fontSize: 16,
+                  // //               color: Colors.black,
+                  // //               fontWeight: FontWeight.bold)),
+                  // //       TextSpan(
+                  // //           text: 'Male\n',
+                  // //           style: TextStyle(
+                  // //               color: Colors.grey,
+                  // //               fontWeight: FontWeight.w300))
+                  // //     ])),
+                  // //   ),
+                  // // ),
+                  // Container(
+                  //   child: ListTile(
+                  //     leading: RichText(
+                  //         text: TextSpan(children: <TextSpan>[
+                  //       TextSpan(
+                  //           text: 'Date of Birth \n',
+                  //           style: TextStyle(
+                  //               fontSize: 16,
+                  //               color: Colors.black,
+                  //               fontWeight: FontWeight.bold)),
+                  //       TextSpan(
+                  //           text: 'June, 14\n',
+                  //           style: TextStyle(
+                  //               color: Colors.grey,
+                  //               fontWeight: FontWeight.w300))
+                  //     ])),
+                  //   ),
+                  // ),
                   SizedBox(
                     height: 20,
                   )

@@ -10,22 +10,29 @@ class Register extends StatelessWidget {
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    final TextEditingController addressController = TextEditingController();
 
     void registerUser() async {
       FirebaseAuth auth = FirebaseAuth.instance;
       FirebaseFirestore firestore = FirebaseFirestore.instance;
 
       final String username = usernameController.text;
+      final String phone = phoneController.text;
+      final String address = addressController.text;
       final String email = emailController.text;
       final String password = passwordController.text;
 
       try {
         final UserCredential user = await auth.createUserWithEmailAndPassword(
             email: email, password: password);
-        await firestore
-            .collection('users')
-            .doc(user.user.uid)
-            .set({'username': username, 'email': email, 'password': password});
+        await firestore.collection('users').doc(user.user.uid).set({
+          'username': username,
+          'email': email,
+          'password': password,
+          'phone': phone,
+          'address': address
+        });
         await showDialog(
             context: context,
             builder: (_) => AlertDialog(
@@ -91,7 +98,19 @@ class Register extends StatelessWidget {
               maxLength: 20,
               decoration: const InputDecoration(
                   labelText: 'Enter username',
-                  icon: Icon(Icons.perm_contact_cal)),
+                  icon: Icon(Icons.person_add_alt)),
+            ),
+            TextFormField(
+              controller: phoneController,
+              maxLength: 20,
+              decoration: const InputDecoration(
+                  labelText: 'Enter phone', icon: Icon(Icons.phone_android)),
+            ),
+            TextFormField(
+              controller: addressController,
+              maxLength: 50,
+              decoration: const InputDecoration(
+                  labelText: 'Enter address', icon: Icon(Icons.place)),
             ),
             TextFormField(
               controller: emailController,
@@ -103,6 +122,7 @@ class Register extends StatelessWidget {
               obscureText: true,
               maxLength: 15,
               controller: passwordController,
+              validator: (val) => val.length < 6 ? 'Password too short.' : null,
               decoration: const InputDecoration(
                   labelText: 'Enter passowrd', icon: Icon(Icons.password)),
             ),
