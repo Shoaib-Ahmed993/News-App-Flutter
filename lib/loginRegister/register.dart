@@ -10,6 +10,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
 
@@ -158,12 +159,17 @@ class _RegisterState extends State<Register> {
               //    password textfield
 
               TextFormField(
-                obscureText: true,
+                obscureText: _isHidden,
                 maxLength: 15,
                 controller: passwordController,
                 validator: (val) => val.length < 6 ? 'Password too short.' : null,
-                decoration: const InputDecoration(
-                    labelText: 'Enter passowrd', icon: Icon(Icons.password)),
+                decoration: InputDecoration(
+                    labelText: 'Enter passowrd', icon: Icon(Icons.password),
+                    suffixIcon: InkWell(
+                      child: Icon(Icons.visibility),
+                      onTap: (){},
+                    )
+                ),
               ),
               SizedBox(
                 height: 20,

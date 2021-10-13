@@ -12,15 +12,15 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool _isHidden = true;
   @override
   Widget build(BuildContext context) {
-
     //    initializing controllers for email,password
 
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
 
-     //    logging in user in cloud firestore and firebase authentication
+    //    logging in user in cloud firestore and firebase authentication
 
     void loginUser() async {
       FirebaseAuth auth = FirebaseAuth.instance;
@@ -35,7 +35,6 @@ class _LoginState extends State<Login> {
         final DocumentSnapshot snapshot =
             await firestore.collection('users').doc(user.user.uid).get();
         final data = snapshot.data();
-
 
         //    show dialog wgen data entered successfully
 
@@ -58,7 +57,6 @@ class _LoginState extends State<Login> {
                   ],
                 ));
 
-
         //      navigate to profile
 
         await Navigator.push(
@@ -69,7 +67,6 @@ class _LoginState extends State<Login> {
     }
 
     return Scaffold(
-
       //    app bar
 
       appBar: AppBar(
@@ -98,7 +95,6 @@ class _LoginState extends State<Login> {
         child: SafeArea(
             child: Column(
           children: [
-
             //    textfield for email
 
             TextFormField(
@@ -111,12 +107,16 @@ class _LoginState extends State<Login> {
             //    textfield for password
 
             TextFormField(
-              obscureText: true,
+              obscureText: _isHidden,
               maxLength: 15,
               controller: passwordController,
               validator: (val) => val.length < 6 ? 'Password too short.' : null,
-              decoration: const InputDecoration(
-                  labelText: 'Enter passowrd', icon: Icon(Icons.password)),
+              decoration: InputDecoration(
+                labelText: 'Enter passowrd',
+                icon: Icon(Icons.password),
+                suffixIcon:
+                    InkWell(onTap: () {}, child: Icon(Icons.visibility)),
+              ),
             ),
             SizedBox(
               height: 20,
