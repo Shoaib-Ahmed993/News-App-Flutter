@@ -14,8 +14,13 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+
+    //    initializing controllers for email,password
+
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+
+     //    logging in user in cloud firestore and firebase authentication
 
     void loginUser() async {
       FirebaseAuth auth = FirebaseAuth.instance;
@@ -30,6 +35,9 @@ class _LoginState extends State<Login> {
         final DocumentSnapshot snapshot =
             await firestore.collection('users').doc(user.user.uid).get();
         final data = snapshot.data();
+
+
+        //    show dialog wgen data entered successfully
 
         await showDialog(
             context: context,
@@ -50,6 +58,9 @@ class _LoginState extends State<Login> {
                   ],
                 ));
 
+
+        //      navigate to profile
+
         await Navigator.push(
             context, MaterialPageRoute(builder: (context) => ProfileScreen()));
       } catch (e) {
@@ -58,6 +69,9 @@ class _LoginState extends State<Login> {
     }
 
     return Scaffold(
+
+      //    app bar
+
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.blue),
         title: Row(
@@ -77,17 +91,25 @@ class _LoginState extends State<Login> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
+
+      //    body
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 15),
         child: SafeArea(
             child: Column(
           children: [
+
+            //    textfield for email
+
             TextFormField(
               controller: emailController,
               maxLength: 20,
               decoration: const InputDecoration(
                   labelText: 'Enter email', icon: Icon(Icons.email)),
             ),
+
+            //    textfield for password
+
             TextFormField(
               obscureText: true,
               maxLength: 15,
@@ -99,6 +121,8 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 20,
             ),
+
+            //    login button
             OutlinedButton.icon(
               icon: Icon(Icons.login),
               onPressed: loginUser,
@@ -118,6 +142,8 @@ class _LoginState extends State<Login> {
             SizedBox(
               height: 15,
             ),
+
+            //    registration button
             OutlinedButton.icon(
               icon: Icon(Icons.app_registration),
               onPressed: () {
@@ -142,7 +168,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-
-
-

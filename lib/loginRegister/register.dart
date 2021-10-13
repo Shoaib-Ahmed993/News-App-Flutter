@@ -12,11 +12,16 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
+
+    //    initializing controllers for username,email,password,phone&address
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     final TextEditingController phoneController = TextEditingController();
     final TextEditingController addressController = TextEditingController();
+
+
+    //    registering user in cloud firestore and firebase authentication
 
     void registerUser() async {
       FirebaseAuth auth = FirebaseAuth.instance;
@@ -39,6 +44,9 @@ class _RegisterState extends State<Register> {
           'address': address
         });
 
+
+        //    show dialog wgen data entered successfully
+
         await showDialog(
             context: context,
             builder: (_) => AlertDialog(
@@ -51,6 +59,9 @@ class _RegisterState extends State<Register> {
                   actions: <Widget>[
                     TextButton(
                       child: const Text('Ok'),
+
+                      //    navigate to profile screen
+                      
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => ProfileScreen()));
@@ -63,12 +74,18 @@ class _RegisterState extends State<Register> {
       }
     }
 
+
+    //      navigate to home screen
+
     void backToHome() {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Home()));
     }
 
     return Scaffold(
+
+      //    app bar
+
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.blue),
         title: Row(
@@ -90,12 +107,19 @@ class _RegisterState extends State<Register> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
+
+
+      //      body
+
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: SafeArea(
               child: Column(
             children: [
+
+              //    username textfield
+
               TextFormField(
                 controller: usernameController,
                 maxLength: 20,
@@ -103,24 +127,36 @@ class _RegisterState extends State<Register> {
                     labelText: 'Enter username',
                     icon: Icon(Icons.person_add_alt)),
               ),
+
+              //    phone textfield
+
               TextFormField(
                 controller: phoneController,
                 maxLength: 20,
                 decoration: const InputDecoration(
                     labelText: 'Enter phone', icon: Icon(Icons.phone_android)),
               ),
+
+              //    address textfield
+
               TextFormField(
                 controller: addressController,
                 maxLength: 50,
                 decoration: const InputDecoration(
                     labelText: 'Enter address', icon: Icon(Icons.place)),
               ),
+
+              //    email textfield
+
               TextFormField(
                 controller: emailController,
                 maxLength: 20,
                 decoration: const InputDecoration(
                     labelText: 'Enter email', icon: Icon(Icons.email)),
               ),
+
+              //    password textfield
+
               TextFormField(
                 obscureText: true,
                 maxLength: 15,
@@ -134,6 +170,9 @@ class _RegisterState extends State<Register> {
               ),
               Column(
                 children: [
+
+                  //    registration button
+
                   ElevatedButton.icon(
                     icon: Icon(Icons.app_registration),
                     onPressed: registerUser,
@@ -152,6 +191,9 @@ class _RegisterState extends State<Register> {
                   SizedBox(
                     height: 15,
                   ),
+
+                  //    back button
+
                   ElevatedButton.icon(
                     icon: Icon(Icons.home),
                     onPressed: backToHome,
