@@ -6,7 +6,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:news_app/screens/profileScreen.dart';
 import 'register.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
