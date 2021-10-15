@@ -13,12 +13,12 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool _isHidden = true;
-  @override
-  Widget build(BuildContext context) {
     //    initializing controllers for email,password
 
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
 
     //    logging in user in cloud firestore and firebase authentication
 
@@ -115,7 +115,11 @@ class _LoginState extends State<Login> {
                 labelText: 'Enter passowrd',
                 icon: Icon(Icons.password),
                 suffixIcon:
-                    InkWell(onTap: () {}, child: Icon(Icons.visibility)),
+                    InkWell(onTap: () {
+                      setState(() {
+                        _isHidden = !_isHidden;
+                      });
+                    }, child: Icon(Icons.visibility)),
               ),
             ),
             SizedBox(

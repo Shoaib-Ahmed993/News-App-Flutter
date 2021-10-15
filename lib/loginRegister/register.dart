@@ -11,15 +11,15 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   bool _isHidden = true;
-  @override
-  Widget build(BuildContext context) {
-
     //    initializing controllers for username,email,password,phone&address
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
     final TextEditingController phoneController = TextEditingController();
     final TextEditingController addressController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+
 
 
     //    registering user in cloud firestore and firebase authentication
@@ -167,7 +167,11 @@ class _RegisterState extends State<Register> {
                     labelText: 'Enter passowrd', icon: Icon(Icons.password),
                     suffixIcon: InkWell(
                       child: Icon(Icons.visibility),
-                      onTap: (){},
+                      onTap: (){
+                        setState(() {
+                        _isHidden = !_isHidden;
+                      });
+                      },
                     )
                 ),
               ),
